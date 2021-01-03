@@ -19,7 +19,7 @@ class CanvasView : NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        self.cgContext = unsafeBitCast(NSGraphicsContext.current()!.graphicsPort, to: CGContext.self)
+        self.cgContext = unsafeBitCast(NSGraphicsContext.current!.graphicsPort, to: CGContext.self)
     }
     
     func text(_ text:String, _ p:NSPoint, rotationRadians:CGFloat?, font : NSFont = NSFont(name: "Monaco", size: 10)!, color color_ : ConvertibleToNSColor = NSColor.black) {
@@ -27,8 +27,8 @@ class CanvasView : NSView {
         let color = color_.color
         
         let attr = [
-            NSFontAttributeName:font,
-            NSForegroundColorAttributeName:color
+            NSAttributedString.Key.font:font,
+            NSAttributedString.Key.foregroundColor:color
         ]
         
         cgContext.saveGState()

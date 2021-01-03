@@ -302,19 +302,19 @@ func pack(_ format:String, _ objects:[Any], _ stringEncoding:String.Encoding=Str
                 }
                 bytes = data.bytes
             case "b":
-                bytes = Int8(truncatingBitPattern:o as! Int).data.bytes
+                bytes = Int8(truncatingIfNeeded:o as! Int).data.bytes
             case "h":
-                bytes = Int16(truncatingBitPattern:o as! Int).data.bytes
+                bytes = Int16(truncatingIfNeeded:o as! Int).data.bytes
             case "i", "l":
-                bytes = Int32(truncatingBitPattern:o as! Int).data.bytes
+                bytes = Int32(truncatingIfNeeded:o as! Int).data.bytes
             case "q", "Q":
                 bytes = Int64(o as! Int).data.bytes
             case "B":
-                bytes = UInt8(truncatingBitPattern:o as! Int).data.bytes
+                bytes = UInt8(truncatingIfNeeded:o as! Int).data.bytes
             case "H":
-                bytes = UInt16(truncatingBitPattern:o as! Int).data.bytes
+                bytes = UInt16(truncatingIfNeeded:o as! Int).data.bytes
             case "I", "L":
-                bytes = UInt32(truncatingBitPattern:o as! Int).data.bytes
+                bytes = UInt32(truncatingIfNeeded:o as! Int).data.bytes
             case "f":
                 bytes = Float32(o as! Double).data.bytes
             case "d":
