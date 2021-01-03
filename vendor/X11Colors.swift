@@ -12,13 +12,13 @@ extension NSRegularExpression {
     class func findAll(string s: String, pattern: String) throws -> [String] {
         
         let regex = try NSRegularExpression(pattern: pattern, options: [])
-        let matches = regex.matches(in: s, options: [], range: NSMakeRange(0, s.characters.count))
+        let matches = regex.matches(in: s, options: [], range: NSMakeRange(0, s.count))
         
         var results : [String] = []
         
         for m in matches {
             for i in 1..<m.numberOfRanges {
-                let range = m.rangeAt(i)
+                let range = m.range(at: i)
                 results.append((s as NSString).substring(with: range))
             }
         }
