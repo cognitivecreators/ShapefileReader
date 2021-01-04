@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ShapefileReader"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "Reads files defined in the Shapefile format."
 
   spec.description  = <<-DESC
