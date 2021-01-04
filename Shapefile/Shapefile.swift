@@ -28,7 +28,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-typealias MapPoint = CGPoint
+public typealias MapPoint = CGPoint
 
 enum ShapeType : Int {
     case nullShape = 0
@@ -79,7 +79,7 @@ enum ShapeType : Int {
     }
 }
 
-class Shape {
+public class Shape {
     init(type:ShapeType = .nullShape) {
         self.shapeType = type
     }
@@ -92,7 +92,7 @@ class Shape {
     var z : Double = 0.0
     var m : [Double?] = []
 
-    func partPointsGenerator() -> AnyIterator<[MapPoint]> {
+    public func partPointsGenerator() -> AnyIterator<[MapPoint]> {
 
         var indices = Array(self.parts)
         indices.append(self.points.count-1)
@@ -113,7 +113,7 @@ class Shape {
     }
 }
 
-class DBFReader {
+public class DBFReader {
     // dBase III+ specs http://www.oocities.org/geoff_wass/dBASE/GaryWhite/dBASE/FAQ/qformt.htm#A
     // extended with dBase IV 2.0 'F' type
 
@@ -121,7 +121,7 @@ class DBFReader {
         case cannotReadFile(path:String)
     }
 
-    typealias DBFRecord = [Any]
+    public typealias DBFRecord = [Any]
 
     var fileHandle : FileHandle?
     var numberOfRecords : Int!
@@ -563,7 +563,7 @@ class SHXReader {
     }
 }
 
-class ShapefileReader {
+public class ShapefileReader {
 
     var shp : SHPReader!
     var dbf : DBFReader? = nil
@@ -571,7 +571,7 @@ class ShapefileReader {
 
     var shapeName : String
 
-    init(path:String) throws {
+    public init(path:String) throws {
 
         self.shapeName = (path as NSString).deletingPathExtension
 
@@ -597,7 +597,7 @@ class ShapefileReader {
         return nil
 }
 
-    func shapeAndRecordGenerator() -> AnyIterator<(Shape, DBFReader.DBFRecord)> {
+    public func shapeAndRecordGenerator() -> AnyIterator<(Shape, DBFReader.DBFRecord)> {
 
         var i = 0
 
