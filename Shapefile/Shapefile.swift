@@ -324,7 +324,7 @@ class SHPReader {
     var shpLength : UInt64 = 0
 
     init(path:String) throws {
-        self.fileHandle = try FileHandle(forReadingFrom: Bundle.main.url(forResource: path, withExtension: nil)!)
+        self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: path))
         try self.readHeader()
     }
 
@@ -510,7 +510,7 @@ class SHXReader {
     }
 
     init(path:String) throws {
-        self.fileHandle = try FileHandle(forReadingFrom: Bundle.main.url(forResource: path, withExtension: nil)!)
+        self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: path))
         self.shapeOffsets = try self.readOffsets()
     }
 
