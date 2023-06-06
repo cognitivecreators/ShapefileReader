@@ -1,3 +1,7 @@
+# CC Notes
+
+Forked because there was a crash inside the library and there were no viable alternatives.
+
 # ShapefileReader
 __A shapefile reader in Swift__
 
