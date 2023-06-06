@@ -225,12 +225,12 @@ public class DBFReader {
                 if trimmedValue == "" {
                     v = trimmedValue
                 } else if deci || trimmedValue.contains(".") {
-                    v = Double(trimmedValue)!
+                    v = Double(trimmedValue) ?? trimmedValue
                 } else {
-                    v = Int(trimmedValue)!
+                    v = Int(trimmedValue) ?? trimmedValue
                 }
             case "F": // Float - since dBASE IV 2.0
-                v = Double(trimmedValue)!
+                v = Double(trimmedValue) ?? trimmedValue
             case "D": // Date, 8 bytes - date stored as a string in the format YYYYMMDD.
                 v = trimmedValue
             case "C": // Character, All OEM code page characters - padded with blanks to the width of the field.
